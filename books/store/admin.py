@@ -1,4 +1,10 @@
 from .models import Book
 from django.contrib import admin
 
-admin.site.register(Book)
+
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'price', 'author_name')
+    list_display_links = ('name', 'price', 'author_name')
+
+
+admin.site.register(Book, BookAdmin)
