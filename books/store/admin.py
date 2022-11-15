@@ -1,4 +1,4 @@
-from .models import Book
+from .models import Book, UserBookRelation
 from django.contrib import admin
 
 
@@ -7,4 +7,10 @@ class BookAdmin(admin.ModelAdmin):
     list_display_links = ('name', 'price', 'author_name')
 
 
+class UserBookRelationAdmin(admin.ModelAdmin):
+    list_display = ('id', 'user', 'book', 'like', 'in_bookmarks', 'rate')
+    list_display_links = ('id', 'user', 'book', 'like', 'in_bookmarks', 'rate')
+
+
 admin.site.register(Book, BookAdmin)
+admin.site.register(UserBookRelation, UserBookRelationAdmin)
