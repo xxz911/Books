@@ -30,10 +30,10 @@ class UserBookRelation(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE,  verbose_name="Книга")
     like = models.BooleanField(default=False,  verbose_name="Лайк")
     in_bookmarks = models.BooleanField(default=False,  verbose_name="Избранное")
-    rate = models.PositiveSmallIntegerField(choices=RATE_CHOICES, null=True, verbose_name="Оценка")
+    rate = models.PositiveSmallIntegerField(choices=RATE_CHOICES, null=True, blank=True, verbose_name="Оценка")
 
     def __str__(self):
-        return f' {self.user.username}: {self.book.name}, Rate: {self.rate}'
+        return f' {self.user.username}: {self.book.name}'
 
     class Meta:
         verbose_name = 'Отношениe Пользователя'

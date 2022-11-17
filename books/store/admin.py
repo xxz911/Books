@@ -9,7 +9,6 @@ class BookAdmin(admin.ModelAdmin):
 
 class UserBookRelationAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'book', 'like', 'in_bookmarks', 'rate')
-    list_display_links = ('id', 'user', 'book', 'like', 'in_bookmarks', 'rate')
 
 
 admin.site.register(Book, BookAdmin)
